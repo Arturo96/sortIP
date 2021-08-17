@@ -6,6 +6,8 @@ const leerIPs = () => {
     // Verificar si el archivo existe
 
     if(fs.existsSync(rutaArchivo)) {
+
+        let ipsObj = [];
        
         // Leer el archivo
 
@@ -17,18 +19,22 @@ const leerIPs = () => {
 
         IPs = IPs.filter(ip => ip.length !== 0);
 
-        // IPs.pop();
-
-        // Organizar las direcciones IPs
-
-        IPs.sort();
-
         // Eliminamos duplicados
 
         let ipsOrganizadas = new Set(IPs);
 
         for (const i of ipsOrganizadas) {
-            console.log(`IP: ${i}`);
+            
+            let octetos = i.split(".");
+
+            const [octeto1, octeto2, octeto3] = octetos;
+            
+            let aux = octetos[3].split("/");
+
+            const [octeto4, mascara] = aux;
+
+            console.log(octeto4, mascara);
+
         }
     } 
 
