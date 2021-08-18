@@ -15,9 +15,15 @@ const leerIPs = () => {
 
         // Agrupar las IPs en un arreglo
 
-        let IPs = info.split("\r\n");
+        let IPs = info.trim().split("\r\n");
+
+        // Eliminamos los espacios vacíos
 
         IPs = IPs.filter(ip => ip.length !== 0);
+
+        // Eliminamos espacios en las IPs
+
+        IPs = IPs.map(ip => ip.replace(/ /g, "").trim());
 
         // Eliminamos duplicados
 
