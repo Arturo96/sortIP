@@ -1,3 +1,5 @@
 const { leerIPs } = require("./helpers/leerArchivo");
 
-leerIPs();
+const IPsOrdenadas = leerIPs();
+
+console.log(IPsOrdenadas);
